@@ -1,0 +1,448 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*========== Colors and shapes ==========*/
+/*Color mode HSL(hue, saturation, lightness)*/
+/* 
+      Change favorite color (Different color sets to try)
+      Default: hsl(162, 100%, 40%)
+      Yellow: hsl(61, 100%, 55%) light-orange: hsl(28, 100%, 50%)
+      orange: hsl(14, 100%, 65%) - Blue: hsl(210, 100%, 70%)
+      Pink: hsl(356, 100%, 75%) - Purple: hsl(250, 100%, 75%)
+
+      (to create your own color combinations)
+      More about color palettes: https://icolorpalette.com/color/21232C
+      Choose color palettes: https://colorhunt.co/
+      For more colors visit: https://colors.dopely.top/color-pedia
+      -> Choose any color 
+      -> click on tab (Color Conversion)
+      -> Copy the color mode (HSL)
+
+      (to create your own shape for images or icons)
+      CSS Clip-Path Generator: https://bennettfeely.com/clippy/     
+    */
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /* --header-height: 3.5rem; */
+
+    /* --hue: 26;
+    --first-color: hsl(var(--hue), 100%, 76%);
+    --first-color-alt: hsl(var(--hue), 60%, 50%); */
+    /* --text-color: hsl(26, 100%, 76%);
+    --title-color: hsl(3, 90%, 66%); */
+    /* --body-color: hsl(333, 58%, 48%); */
+    /* --container-color: hsl(333, 58%, 48%); */
+    /* --container-color: hsl(318, 70%, 28%);
+    --body-color: hsl(283, 66%, 10%); */
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Poppins", sans-serif;
+    --biggest-font-size: 2rem;
+    --bigger-font-size: 1.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+    :root {
+        --biggest-font-size: 4rem;
+        --bigger-font-size: 2rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: 0.875rem;
+        --smaller-font-size: 0.813rem;
+    }
+}
+
+/*=============== BASE (Do not update values without understanding) ===============*/
+* {
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+input,
+textarea,
+button,
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    background-color: #7bdaf3;
+    padding-top: 3rem;
+}
+
+input,
+textarea,
+button {
+    outline: none;
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: var(--font-medium);
+}
+
+/* ul {
+    list-style: none;
+} */
+
+/* a {
+    text-decoration: none;
+} */
+
+/* img,
+svg {
+    max-width: 100%;
+    height: auto;
+} */
+
+/*=============== REUSABLE CSS CLASSES (preety basics) ===============*/
+/* .container {
+    background-color: #fff;
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+} */
+
+/* .grid {
+    display: grid;
+    justify-content: center;
+    gap: 1.5rem;
+} */
+
+/* .section {
+    display: grid;
+    justify-content: center;
+    padding-block: 5rem 2rem;
+} */
+
+/* .section__title,
+.section__subtitle {
+    text-align: center;
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+.section__title {
+    font-size: var(--h1-font-size);
+    margin-bottom: 1.5rem;
+}
+
+.section__subtitle {
+    font-size: var(--small-font-size);
+    margin-bottom: 0.25rem;
+}
+
+.section__subtitle span {
+    color: var(--text-color);
+} */
+
+/* .main {
+    overflow: hidden; /* For animation ScrollReveal
+} */
+*/
+
+/* <!--==================== HEADER ====================--> */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+}
+
+/* <!--==================== MAIN ====================--> */
+.main {
+    height: 700px;
+    display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+}
+/* <!--==================== APP ====================--> */
+.app {
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: 0 0 10px 5px #646161;
+    position: relative;
+    top: 6rem;
+    margin: 0.5rem;
+}
+/* <!--==================== TOOLS ====================--> */
+
+.tools__content {
+    background-color: #9ec862;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0.3rem;
+}
+
+.add {
+    background-color: #9ec862;
+    border-radius: 3px;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    cursor: pointer;
+}
+.add i {
+    border: none;
+}
+.edit,
+.delete {
+    margin-right: 0.5rem;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+/* <!--==================== NOTE ====================--> */
+
+.note__content {
+    width: 100%;
+    height: 92%;
+    overflow: hidden;
+    background-color: #ccfa8b;
+}
+#textarea {
+    /* order: 1; */
+    /* background-color: #ccfa8b; */
+    outline: none;
+    font-family: inherit;
+    border: none;
+    width: 100%;
+    height: 92%;
+    font-size: 1.2rem;
+}
+
+.hidden {
+    display: none;
+}
+/* <!--==================== BUTTON ====================--> */
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+/* @media screen and (max-width: 320px) {
+    .container {
+        margin-inline: 1rem;
+    }
+
+    .skills__content {
+        grid-template-columns: max-content;
+        grid-gap: 1rem;
+    }
+
+    .services__card {
+        padding-block: 1.5rem;
+    }
+}
+/* For medium devices */ /*
+@media screen and (min-width: 576px) {
+    .home__container,
+    .about__container,
+    .skills__container,
+    .services__container,
+    .projects__container,
+    .contact__container {
+        grid-template-columns: 360px;
+        justify-content: center;
+    }
+}
+@media screen and (min-width: 768px) {
+    .nav__menu {
+        width: 35%;
+    }
+    .home__container,
+    .about__container,
+    .skills__container {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+    .home__data,
+    .about__data,
+    .skills__data,
+    :is(.about__data, .skills__data) :is(.section__subtitle, .section__title) {
+        text-align: initial;
+    }
+    .home__social {
+        justify-content: initial;
+    }
+    .home__blob,
+    .about__blob {
+        width: 400px;
+    }
+    .about__data {
+        order: 1;
+    }
+    .services__container,
+    .projects__container {
+        grid-template-columns: repeat(2, 352px);
+    }
+}*/
+/* For large devices */
+@media screen and (min-width: 1024px) {
+    /* .section {
+        padding-block: 7rem 2rem;
+    } */ /*
+    .section__subtitle {
+        font-size: var(--normal-font-size);
+    }
+    .nav {
+        height: calc(var(--header-height) + 1.5rem);
+    }
+    .nav__close,
+    .nav__toggle {
+        display: none;
+    }
+    .nav__list {
+        flex-direction: row;
+        column-gap: 3rem;
+    }
+    .nav__menu {
+        width: initial;
+    }*/
+    /* .blur-header::after {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);  for safari browser  
+    }*/
+}
+/*
+@media screen and (min-width: 1152px) {
+    .container {
+        margin-inline: auto;
+    }
+    .home__container {
+        grid-template-columns: 455px 550px;
+        column-gap: 7rem;
+        padding-block: 2rem 3rem;
+    }
+    .home__blob {
+        width: 550px;
+    }
+    .home__content {
+        row-gap: 4.5rem;
+    }
+    .home__description {
+        margin-block: 1.5rem 2.5rem;
+    }
+    .home__social {
+        column-gap: 1.5rem;
+    }
+    .about__container {
+        grid-template-columns: 550px 460px;
+        column-gap: 4.5rem;
+        padding-bottom: 1rem;
+    }
+    .about__blob {
+        width: 550px;
+    }
+    .about__description {
+        margin-bottom: 3rem;
+    }
+    .skills__container {
+        grid-template-columns: 340px 425px;
+        column-gap: 10rem;
+        padding-bottom: 4rem;
+    }
+    .skills__description {
+        margin-bottom: 3rem;
+    }
+    .skills__content {
+        column-gap: 8rem;
+    }
+    .skills__group {
+        row-gap: 1.5rem;
+    }
+    .skills__item {
+        font-size: var(--h3-font-size);
+    }
+    .services__container {
+        grid-template-columns: repeat(3, 352px);
+        padding-block: 2.5rem 4rem;
+    }
+    .services__card {
+        padding: 3.5rem 2rem;
+    }
+    .projects__container {
+        grid-template-columns: repeat(3, 350px);
+        row-gap: 3.5rem;
+    }
+    .projects__button {
+        font-size: var(--normal-font-size);
+    }
+    .contact__container {
+        grid-template-columns: 680px;
+        padding-block: 2.5rem 2rem;
+    }
+    .contact__form {
+        row-gap: 1.5rem;
+    }
+    .contact__group {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+    }
+    .contact__input {
+        padding: 1.5rem;
+    }
+    .contact__form {
+        padding: 1.5rem;
+    }
+    .contact__form textarea {
+        height: 20rem;
+    }
+    .footer {
+        padding-block: 4.5rem 4rem;
+        padding: 7rem;
+    }
+    .footer__container {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        text-align: initial;
+    }
+    .footer__title {
+        font-size: var(--bigger-font-size);
+    }
+    .footer__social {
+        column-gap: 1.5rem;
+    }
+    .footer__copy {
+        margin: 0;
+        justify-self: flex-end;
+    }
+    .scrollup {
+        right: 3rem;
+    }
+} */
