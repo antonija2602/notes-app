@@ -64,7 +64,7 @@ function addNewNote(text = "") {
         updateLocalStorage()
     })
 
-    const mainElement = document.querySelector(".main")
+    const mainElement = document.getElementById("main")
     mainElement.append(appElement)
 }
 
